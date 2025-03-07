@@ -3,11 +3,12 @@ import time
 
 def speed_calc_decorator(function):
     def wrapper_function():
-        starting_time = time.time()
+        start_time = time.time()
         function()
-        end_time = time.time()
-        runtime = end_time - starting_time
-        print(f"{function.__name__} run speed: {runtime}")
+        finish_time = time.time()
+
+        run_time = finish_time - start_time
+        print(f"{function.__name__} run speed: {run_time}")
 
     return wrapper_function
 
