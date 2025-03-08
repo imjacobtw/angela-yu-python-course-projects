@@ -1,5 +1,5 @@
 class Post:
-    def __init__(self, id, title, subtitle, body):
+    def __init__(self, id: int, title: str, subtitle: str, body: str) -> None:
         self.id = id
         self.title = title
         self.subtitle = subtitle
