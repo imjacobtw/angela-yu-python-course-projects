@@ -1,16 +1,18 @@
-<!-- Navigation-->
 {% include "header.html" %}
+
 <!-- Page Header-->
 <header
   class="masthead"
-  style="background-image: url('../static/assets/img/home-bg.jpg')"
+  style="background-image: url({{ url_for('static', filename='assets/img/home-bg.jpg') }})"
 >
   <div class="container position-relative px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
         <div class="site-heading">
           <h1>Jacob's Blog</h1>
-          <span class="subheading">The inner mechanisms of my mind are an enigma.</span>
+          <span class="subheading"
+            >A collection of Jacob's random musings.</span
+          >
         </div>
       </div>
     </div>
@@ -23,18 +25,14 @@
       {% for post in posts: %}
       <!-- Post preview-->
       <div class="post-preview">
-        <a href="{{ url_for('post', id=post.id) }}">
-          <h2 class="post-title">
-            {{ post.title }}
-          </h2>
-          <h3 class="post-subtitle">
-            {{ post.subtitle }}
-          </h3>
+        <a href="{{ url_for('post_route', id=post.id) }}">
+          <h2 class="post-title">{{ post.title }}</h2>
+          <h3 class="post-subtitle">{{ post.subtitle }}</h3>
         </a>
         <p class="post-meta">
           Posted by
-          <a href="https://www.github.com/imjacobtw">Jacob Wilkerson</a>
-          on January 9, 2025
+          <a href="#!">{{ post.author }}</a>
+          on {{ post.date.strftime("%B %d, %Y") }}
         </p>
       </div>
       <!-- Divider-->
@@ -47,5 +45,5 @@
     </div>
   </div>
 </div>
-<!-- Footer-->
+
 {% include "footer.html" %}
