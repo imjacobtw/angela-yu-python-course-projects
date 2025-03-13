@@ -56,4 +56,4 @@ def add_cafe_route() -> str | Response:
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
